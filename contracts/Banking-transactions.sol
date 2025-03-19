@@ -26,10 +26,10 @@ contract Transactions{
         _;
     }
 
-    function deposit(uint i, uint amount) public OnlyOwner(i){
+    function deposit(uint i, uint amount) public{
         if (accounts[msg.sender].length == 0){
-            accounts[msg.sender].push(Account({id: msg.sender, balance:0, timestamp:block.timestamp}));
-        }
+            accounts[msg.sender].push(Account({id: msg.sender, balance:amount, timestamp:block.timestamp}));
+        } 
         require(i < accounts[msg.sender].length, "Account id invalid");
        accounts[msg.sender][i].balance += amount;
     }
