@@ -4,7 +4,42 @@
 	},
 	"language": "Solidity",
 	"output": {
-		"abi": [],
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "accounts",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "balance",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timestamp",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
 		"devdoc": {
 			"kind": "dev",
 			"methods": {},
@@ -33,11 +68,11 @@
 	},
 	"sources": {
 		"contracts/Banking-transactions.sol": {
-			"keccak256": "0x175a12b522d5aefa7cccd72290bf7f2064844da832c7ad04cf10bdea03e71d7f",
+			"keccak256": "0x6f34abc2fc67369477b9772a77df6c69470a8af134a15a00c8176ee0af1ac2e9",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://3cc809e805d249161fdf33d2763466469dbeb777c297098275c6dc312118c717",
-				"dweb:/ipfs/QmdnteDHKK8AEH9ZLq21587yg4YZb9TUZ1rwMpsdvaGig7"
+				"bzz-raw://f005a2fe217d9c99b1979298dc5484bd7563bd63799bf87e639a93f33e17092d",
+				"dweb:/ipfs/QmdXjbrur6HrnuhB7EoUHMX878F1MUNc2zV254Sx8DkxxQ"
 			]
 		}
 	},
