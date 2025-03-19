@@ -40,7 +40,7 @@ contract Transactions{
     function transfer(uint i, address receiver, uint amount, string memory message) public OnlyOwner{
         require(i < accounts[msg.sender].length, "Accound id invalid");
         require(accounts[msg.sender][i].balance >= amount, "Insufficient funds");
-        require(receiver != accounts[msg.sender][i].id, "Invalid account");
+        require(receiver != msg.sender, "Invalid account");
 
         withdraw(i, amount);
         accounts[receiver][i].balance += amount;
