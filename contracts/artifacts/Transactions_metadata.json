@@ -6,6 +6,11 @@
 	"output": {
 		"abi": [
 			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "address",
@@ -32,7 +37,20 @@
 					},
 					{
 						"internalType": "address",
-						"name": "sender",
+						"name": "id",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
 						"type": "address"
 					}
 				],
@@ -68,11 +86,11 @@
 	},
 	"sources": {
 		"contracts/Banking-transactions.sol": {
-			"keccak256": "0x6f34abc2fc67369477b9772a77df6c69470a8af134a15a00c8176ee0af1ac2e9",
+			"keccak256": "0x6ea88c1d3fc71745e1af0c369f77d268ee76eb10d711ca373b08e40bf2889e82",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://f005a2fe217d9c99b1979298dc5484bd7563bd63799bf87e639a93f33e17092d",
-				"dweb:/ipfs/QmdXjbrur6HrnuhB7EoUHMX878F1MUNc2zV254Sx8DkxxQ"
+				"bzz-raw://4903c0b46218df07f3f237b01e90a1d616ba7cef203537691fb0bf725f3f3b75",
+				"dweb:/ipfs/QmcuRvWfBqtU8r3wV8dRSdDyF1Hwbrx8L6T8uWMsoWRxx7"
 			]
 		}
 	},
