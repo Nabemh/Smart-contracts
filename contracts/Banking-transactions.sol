@@ -21,38 +21,44 @@ contract Transactions{
         owner = msg.sender;
     }
 
-    modifier OnlyOwner(){
-        require(msg.sender == owner, "Not owner");
+    modifier OnlyOwner(uint i){
+        require(i < accounts[msg.sender].length, "Not Valid account index");
         _;
     }
 
-    function deposit(uint i, uint amount) public OnlyOwner{
+    function deposit(uint i, uint amount) public OnlyOwner(i){
         if (accounts[msg.sender].length == 0){
             accounts[msg.sender].push(Account({id: msg.sender, balance:0, timestamp:block.timestamp}));
         }
-        require(i < accounts[msg.sender].length, "Accound id invalid");
+        require(i < accounts[msg.sender].length, "Account id invalid");
        accounts[msg.sender][i].balance += amount;
     }
 
-    function withdraw(uint i, uint amount) public OnlyOwner{
-        require(i < accounts[msg.sender].length, "Accound id invalid");
+    function withdraw(uint i, uint amount) public OnlyOwner(i){
+        require(i < accounts[msg.sender].length, "Account id invalid");
         require(accounts[msg.sender][i].balance >= amount, "Insufficent funds");
         accounts[msg.sender][i].balance -= amount;
     }
 
-    function transfer(uint i, address receiver, uint amount, string memory message) public OnlyOwner{
-        require(i < accounts[msg.sender].length, "Accound id invalid");
+    function transfer(uint i, address receiver, uint amount, string memory message) public OnlyOwner(i){
+        require(i < accounts[msg.sender].length, "Account id invalid");
         require(accounts[msg.sender][i].balance >= amount, "Insufficient funds");
         require(receiver != msg.sender, "Invalid account");
 
         accounts[msg.sender][i].balance -= amount;
 
-        accounts[receiver][i].balance += amount;
-        emit TransferComplete(accounts[msg.sender][i].id, accounts[receiver][i].id, message, amount, accounts[msg.sender][i].timestamp);
+        if (accounts[receiver].length == 0){
+            accounts[receiver].push(Account({id: receiver, balance:0, timestamp:block.timestamp}));
+        } else {
+            accounts[receiver][0].balance += amount;
+        }
+        
+        emit TransferComplete(msg.sender, receiver, message, amount, block.timestamp);
 
     }
 
     function getBalance(uint i) public view returns(uint){
+        require(i < accounts[msg.sender].length, "Account id invalid");
         return accounts[msg.sender][i].balance;
     }
 
