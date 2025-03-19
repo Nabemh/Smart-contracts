@@ -13,6 +13,8 @@ contract Transactions{
     mapping (address => Account[]) public accounts;
     address public owner;
 
+    
+
     constructor (){
         owner == msg.sender;
     }
@@ -27,12 +29,18 @@ contract Transactions{
     }
 
     function withdraw(uint i, uint amount) public OnlyOwner{
-        require(accounts[msg.sender][i].balance >= amount, "Insuffient funds");
+        require(accounts[msg.sender][i].balance >= amount, "Insufficent funds");
         accounts[msg.sender][i].balance -= amount;
     }
 
     function transfer(uint i, address receiver, uint amount) public OnlyOwner{
-        
+        require(i < accounts[msg.sender].length, "Accound id invalid");
+        require(accounts[msg.sender][i].balance >= amount, "Insufficient funds");
+        require(receiver != accounts[msg.sender][i].id, "Invalid account");
+
+        withdraw(i, amount);
+        accounts[receiver][i].balance += amount;
+
     }
 
     function getBalance(uint i) public view returns(uint){
