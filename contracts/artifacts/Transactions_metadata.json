@@ -44,7 +44,7 @@
 						"type": "uint256"
 					}
 				],
-				"name": "TranserComplete",
+				"name": "TransferComplete",
 				"type": "event"
 			},
 			{
@@ -206,11 +206,11 @@
 	},
 	"sources": {
 		"contracts/Banking-transactions.sol": {
-			"keccak256": "0xc34e88d0697c12a2274d5f6ef833eb442c2d04c87547101fe0992474a1835186",
+			"keccak256": "0xf566dcebe7d016883fec755d4d614f0724c7461e0264bbf510f31e8e2742b1e7",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://3989b9984ea086832d3798895726915eccc489a6e98f3e628a788cea4ed4b296",
-				"dweb:/ipfs/QmbQi1VNbRZnq2jiUZBLocSuAvGnTYiBVU1U8pLdTvrzKz"
+				"bzz-raw://1c76f4587945f61204721e1c0210729840baac6fb660033b06e3a3c4cb80f4d6",
+				"dweb:/ipfs/Qma7wSma4f4yUi6b4Dqew46CNjB4BzggqhBXPNN21ZZ2B3"
 			]
 		}
 	},

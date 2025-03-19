@@ -13,7 +13,7 @@ contract Transactions{
     mapping (address => Account[]) public accounts;
     address public owner;
 
-    event TranserComplete(
+    event TransferComplete(
         address indexed from, address indexed to, string message,uint amount, uint timestamp 
     );
 
@@ -27,6 +27,9 @@ contract Transactions{
     }
 
     function deposit(uint i, uint amount) public OnlyOwner{
+        if (accounts[msg.sender].length == 0){
+            accounts[msg.sender].push(Account({id: msg.sender, balance:0, timestamp:block.timestamp}));
+        }
         require(i < accounts[msg.sender].length, "Accound id invalid");
        accounts[msg.sender][i].balance += amount;
     }
@@ -42,9 +45,10 @@ contract Transactions{
         require(accounts[msg.sender][i].balance >= amount, "Insufficient funds");
         require(receiver != msg.sender, "Invalid account");
 
-        withdraw(i, amount);
+        accounts[msg.sender][i].balance -= amount;
+
         accounts[receiver][i].balance += amount;
-        emit TranserComplete(accounts[msg.sender][i].id, accounts[receiver][i].id, message, amount, accounts[msg.sender][i].timestamp);
+        emit TransferComplete(accounts[msg.sender][i].id, accounts[receiver][i].id, message, amount, accounts[msg.sender][i].timestamp);
 
     }
 
