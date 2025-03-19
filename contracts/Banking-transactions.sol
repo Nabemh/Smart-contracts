@@ -13,7 +13,9 @@ contract Transactions{
     mapping (address => Account[]) public accounts;
     address public owner;
 
-    
+    event TranserComplete(
+        address indexed from, address indexed to, string message,uint amount, uint timestamp 
+    );
 
     constructor (){
         owner == msg.sender;
@@ -33,13 +35,14 @@ contract Transactions{
         accounts[msg.sender][i].balance -= amount;
     }
 
-    function transfer(uint i, address receiver, uint amount) public OnlyOwner{
+    function transfer(uint i, address receiver, uint amount, string memory message) public OnlyOwner{
         require(i < accounts[msg.sender].length, "Accound id invalid");
         require(accounts[msg.sender][i].balance >= amount, "Insufficient funds");
         require(receiver != accounts[msg.sender][i].id, "Invalid account");
 
         withdraw(i, amount);
         accounts[receiver][i].balance += amount;
+        emit TranserComplete(accounts[msg.sender][i].id, accounts[receiver][i].id, message, amount, accounts[msg.sender][i].timestamp);
 
     }
 

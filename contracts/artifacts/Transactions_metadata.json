@@ -11,6 +11,43 @@
 				"type": "constructor"
 			},
 			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "from",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "message",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "timestamp",
+						"type": "uint256"
+					}
+				],
+				"name": "TranserComplete",
+				"type": "event"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "address",
@@ -110,6 +147,11 @@
 						"internalType": "uint256",
 						"name": "amount",
 						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "message",
+						"type": "string"
 					}
 				],
 				"name": "transfer",
@@ -164,11 +206,11 @@
 	},
 	"sources": {
 		"contracts/Banking-transactions.sol": {
-			"keccak256": "0xb2a1d6cf04ca5f7097160975f924f911a77bbcc5de2aa2ed265a6d35271470c2",
+			"keccak256": "0x77a0beac45b53eaf889b51f312bd459f675111feec14f91817b1c8d7f05d26f6",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://20d96aa131777ffe5bfc13c532f62606d6c50f322ee6360e37e0576df5bbfd19",
-				"dweb:/ipfs/QmUVAGd1USc4vKWACaaKEReDga1T7e2UeeFQ3pyZg5LthA"
+				"bzz-raw://3ef5a44345a6e27b69bf31092a5418d00bfc14017e033c697b4c736ef9b24ef9",
+				"dweb:/ipfs/QmfB1couXkSMwB1T1VzEfVepk8HjgGy9XZkYsqQQJrnTeh"
 			]
 		}
 	},
