@@ -45,6 +45,43 @@
 				"type": "function"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "i",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "deposit",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "i",
+						"type": "uint256"
+					}
+				],
+				"name": "getBalance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "owner",
 				"outputs": [
@@ -55,6 +92,47 @@
 					}
 				],
 				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "i",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "receiver",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "transfer",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "i",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "withdraw",
+				"outputs": [],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			}
 		],
@@ -86,11 +164,11 @@
 	},
 	"sources": {
 		"contracts/Banking-transactions.sol": {
-			"keccak256": "0x6ea88c1d3fc71745e1af0c369f77d268ee76eb10d711ca373b08e40bf2889e82",
+			"keccak256": "0x251f039e7f858196d52fc65b14b17d5ed9ec975d67c09ae29f4a7e5b8e5b74c4",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://4903c0b46218df07f3f237b01e90a1d616ba7cef203537691fb0bf725f3f3b75",
-				"dweb:/ipfs/QmcuRvWfBqtU8r3wV8dRSdDyF1Hwbrx8L6T8uWMsoWRxx7"
+				"bzz-raw://296461b78c1b1220b6e74fa060df6fa6067ef66da6f5a1dc587f16d4c6ea21de",
+				"dweb:/ipfs/QmY9tX2XTsaVaUSa1oK5xWd82kx4yAVXsFraHd2TKZdGyF"
 			]
 		}
 	},
