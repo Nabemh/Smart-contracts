@@ -18,7 +18,7 @@ contract Transactions{
     );
 
     constructor (){
-        owner == msg.sender;
+        owner = msg.sender;
     }
 
     modifier OnlyOwner(){
@@ -27,10 +27,12 @@ contract Transactions{
     }
 
     function deposit(uint i, uint amount) public OnlyOwner{
+        require(i < accounts[msg.sender].length, "Accound id invalid");
        accounts[msg.sender][i].balance += amount;
     }
 
     function withdraw(uint i, uint amount) public OnlyOwner{
+        require(i < accounts[msg.sender].length, "Accound id invalid");
         require(accounts[msg.sender][i].balance >= amount, "Insufficent funds");
         accounts[msg.sender][i].balance -= amount;
     }
