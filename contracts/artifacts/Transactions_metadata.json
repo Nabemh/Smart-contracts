@@ -1,0 +1,45 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/Banking-transactions.sol": "Transactions"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/Banking-transactions.sol": {
+			"keccak256": "0x175a12b522d5aefa7cccd72290bf7f2064844da832c7ad04cf10bdea03e71d7f",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://3cc809e805d249161fdf33d2763466469dbeb777c297098275c6dc312118c717",
+				"dweb:/ipfs/QmdnteDHKK8AEH9ZLq21587yg4YZb9TUZ1rwMpsdvaGig7"
+			]
+		}
+	},
+	"version": 1
+}
