@@ -8,6 +8,9 @@ interface  IProfile {
         string username; 
         uint balance;
         uint creationTimestamp;
+
+        function createProfile(address _userAddress, string memory _username) external;
+        function getProfile(address _user) external view returns (address, string memory, uint, uint);
     } 
 }
 
@@ -33,6 +36,10 @@ contract Transactions{
     modifier OnlyOwner(uint i){
         require(i < accounts[msg.sender].length, "Not Valid account index");
         _;
+    }
+    
+    function createProfile(string memory _username) public {
+        IProfile.setProfile(msg.sender, _username);
     }
 
     function deposit(uint i, uint amount) public{
