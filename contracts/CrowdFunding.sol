@@ -18,11 +18,22 @@ contract CrowdFunding {
 
     uint256 public numberOfCampaigns = 0;
 
+    modifier onlyOwner(uint256 _id) {
+        require (msg.sender == campaigns[_id].owner, "Only owner can make changes");
+        _;
+    }
+
+    event newAction(
+        address indexed creator,
+        string action,
+        uint256 timestamp
+    );
+
     function createCampaign(address _owner, string memory _title, string memory _description, uint256 _target,
     uint256 _deadline, string memory _image) public returns (uint256) {
         Campaign storage campaign = campaigns[numberOfCampaigns];
 
-        require(campaign.deadline < block.timestamp, "Deadline should be a later date");
+        require(campaign.deadline > block.timestamp, "Deadline should be a later date");
 
         campaign.owner = _owner;
         campaign.title = _title;
@@ -33,6 +44,9 @@ contract CrowdFunding {
         campaign.image = _image;
 
         numberOfCampaigns++;
+
+        emit newAction(_owner, "New Campaign!", block.timestamp);
+
         return numberOfCampaigns - 1;
     }
 
@@ -49,6 +63,19 @@ contract CrowdFunding {
         if(sent) {
             campaign.amountCollected += amount;
         }
+
+        emit newAction(msg.sender, "Donation", block.timestamp);
+    }
+
+    function withdrawToTeam (address _owner, uint256 _id) public payable {
+        Campaign storage campaign = campaigns[_id];
+        require (campaign.deadline >= block.timestamp, "Campaign still in progress");
+        require (_owner != address(0), "Enter valid address");
+        
+        (bool success,) = _owner.call{value: campaign.amountCollected}("");
+        require(success, "Failed to send Ether");
+
+        emit newAction(_owner, "Withdrawal", block.timestamp);
     }
 
     function getDonators(uint256 _id) public view returns (address[] memory, uint256[] memory){
