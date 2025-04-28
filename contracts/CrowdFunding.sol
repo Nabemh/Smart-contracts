@@ -2,10 +2,13 @@
 pragma solidity ^0.8.9;
 
 contract CrowdFunding {
+// work with emails and categories
     struct Campaign {
         address owner;
         string title;
+        string email;
         string description;
+        string category;
         uint256 target;
         uint256 deadline;
         uint256 amountCollected;
@@ -29,7 +32,7 @@ contract CrowdFunding {
         uint256 timestamp
     );
 
-    function createCampaign(address _owner, string memory _title, string memory _description, uint256 _target,
+    function createCampaign(address _owner, string memory _title, string memory _email, string memory _description, string memory _category, uint256 _target,
     uint256 _deadline, string memory _image) public returns (uint256) {
         Campaign storage campaign = campaigns[numberOfCampaigns];
 
@@ -37,7 +40,9 @@ contract CrowdFunding {
 
         campaign.owner = _owner;
         campaign.title = _title;
+        campaign.email = _email;
         campaign.description = _description;
+        campaign.category = _category;
         campaign.target = _target;
         campaign.deadline = _deadline;
         campaign.amountCollected  = 0;
@@ -80,6 +85,10 @@ contract CrowdFunding {
 
     function getDonators(uint256 _id) public view returns (address[] memory, uint256[] memory){
         return (campaigns[_id].donators, campaigns[_id].donations);
+    }
+
+    function getByCategory(uint256 _id) public view returns(string memory){
+        return campaigns[_id].category;
     }
 
     function getCampaigns() public view returns (Campaign[] memory){
