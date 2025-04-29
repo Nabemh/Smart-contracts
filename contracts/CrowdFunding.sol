@@ -89,7 +89,7 @@ contract CrowdFunding is ReentrancyGuard {
         require(_owner != address(0), "Enter valid address");
 
         uint256 amount = campaign.amountCollected;
-        campaign.amountCollected = 0; // Prevent reentrancy
+        campaign.amountCollected = 0;
 
         (bool success, ) = payable(_owner).call{value: amount}("");
         require(success, "Failed to send Ether");
